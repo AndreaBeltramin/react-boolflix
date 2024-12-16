@@ -4,6 +4,8 @@ import { useState, useEffect } from "react";
 const defaultFormData = {
 	title: "",
 };
+const list = [];
+
 export default function HomePage() {
 	const fetchMovies = () => {
 		const url = `https://api.themoviedb.org/3/search/movie?query=${formFields.title}&include_adult=false&language=en-US&page=1`;
@@ -20,10 +22,16 @@ export default function HomePage() {
 		fetch(url, options)
 			.then((res) => res.json())
 			.then((data) => {
-				console.log(data, url);
+				console.log(data);
 				const newList = [...list, data];
 				setList(newList);
 				console.log(newList[0].results[0].title);
+
+				newList.map((el, index) => (
+					<ul key={index}>
+						<li>{el.title}</li>
+					</ul>
+				));
 			})
 			.catch((err) => console.error(err));
 	};
@@ -61,6 +69,7 @@ export default function HomePage() {
 			{list.map((el, index) => (
 				<ul key={index}>
 					<li>{el.title}</li>
+					{console.log(list)}
 				</ul>
 			))}
 		</div>

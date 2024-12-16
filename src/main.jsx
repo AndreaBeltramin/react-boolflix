@@ -10,9 +10,9 @@ import * as bootstrap from "bootstrap";
 import App from "./App.jsx";
 
 createRoot(document.getElementById("root")).render(
-	<GlobalContextProvider>
-		<StrictMode>
+	<StrictMode>
+		<GlobalContextProvider>
 			<App />
-		</StrictMode>
-	</GlobalContextProvider>
+		</GlobalContextProvider>
+	</StrictMode>
 );
