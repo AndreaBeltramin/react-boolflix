@@ -1,15 +1,19 @@
-// import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { GlobalContextProvider } from "./contexts/globalContext";
+
+// import { useState } from 'react'
+import HomePage from "./pages/HomePage";
 
 function App() {
-	return;
-	<BrowserRouter>
-		<Routes>
-			<Route path="/" element="{<HomePage/>}" />
-			<Route path="/aboutUs" element="{<AboutUsPage/>}" />
-			<Route path="/listProducts" element="{<ListProductsPage/>}" />
-		</Routes>
-	</BrowserRouter>;
+	return (
+		<GlobalContextProvider>
+			<BrowserRouter>
+				<Routes>
+					<Route path="/" Component={HomePage} />
+				</Routes>
+			</BrowserRouter>
+		</GlobalContextProvider>
+	);
 }
 
 export default App;
