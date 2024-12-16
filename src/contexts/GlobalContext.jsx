@@ -1,12 +1,12 @@
 import { createContext, useContext } from "react";
-import { useParams } from "react-router-dom";
 import HomePage from "../pages/HomePage";
 
 const GlobalContext = createContext();
 
 export const GlobalContextProvider = ({ children }) => {
 	const fetchMovies = () => {
-		const url = " https://api.themoviedb.org/3/search/movie";
+		const url =
+			"https://api.themoviedb.org/3/search/movie?query=harry&include_adult=false&language=en-US&page=1";
 
 		const options = {
 			method: "GET",
