@@ -109,7 +109,7 @@ export default function HomePage() {
 						<ul>
 							<li>{movie.title}</li>
 							<li>{movie.originalTitle}</li>
-							<li>{movie.originalLanguage ? "lingua si" : "lingua no"}</li>
+							<li>{movie.originalLanguage}</li>
 							<li>{movie.vote}</li>
 						</ul>
 					</li>
@@ -122,7 +122,7 @@ export default function HomePage() {
 						<ul>
 							<li>{tvShow.title}</li>
 							<li>{tvShow.originalTitle}</li>
-							<li>{tvShow.originalLanguage ? "lingua si" : "lingua no"}</li>
+							<li>{tvShow.originalLanguage}</li>
 							<li>{tvShow.vote}</li>
 						</ul>
 					</li>
