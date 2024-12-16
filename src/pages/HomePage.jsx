@@ -1,21 +1,26 @@
 // import { globalContext } from "../contexts/globalContext";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 const defaultFormData = {
 	title: "",
 };
-const list = [];
 
 export default function HomePage() {
+	const [list, setList] = useState([]);
+	const [formFields, setFormFields] = useState(defaultFormData);
+
 	const fetchMovies = () => {
 		const url = `https://api.themoviedb.org/3/search/movie?query=${formFields.title}&include_adult=false&language=en-US&page=1`;
+		const accessKey = import.meta.env.VITE_TMDB_API_KEY;
+
+		console.log(url);
+		console.log(accessKey);
 
 		const options = {
 			method: "GET",
 			headers: {
 				accept: "application/json",
-				Authorization:
-					"Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI5YjkzMzAxNzExNDY5ZDY3OGUzNTA1MDU3NTUzNjJjNyIsIm5iZiI6MTczNDM0NzI1OC4zODEsInN1YiI6IjY3NjAwOWZhYWZhZmRiMmFhNjQ5ZGZkNiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.CamLwnpK3yElEKZNKWCU_Whkd27JrmQRIqiKBtA8oK0",
+				Authorization: accessKey,
 			},
 		};
 
@@ -23,23 +28,19 @@ export default function HomePage() {
 			.then((res) => res.json())
 			.then((data) => {
 				console.log(data);
-				const newList = [...list, data];
-				setList(newList);
-				console.log(newList[0].results[0].title);
-
-				newList.map((el, index) => (
-					<ul key={index}>
-						<li>{el.title}</li>
-					</ul>
-				));
+				const listMovies = data.results.map((movie) => ({
+					title: movie.title,
+					originalTitle: movie.original_title,
+					originalLanguage: movie.original_language,
+					vote: movie.vote_average,
+				}));
+				setList(listMovies);
+				console.log(listMovies, data.results);
 			})
 			.catch((err) => console.error(err));
 	};
 
 	// const { fetchMovies } = globalContext();
-
-	const [list, setList] = useState([]);
-	const [formFields, setFormFields] = useState(defaultFormData);
 
 	const handleInputChange = (e) => {
 		setFormFields({ ...formFields, [e.target.name]: e.target.value });
@@ -65,13 +66,18 @@ export default function HomePage() {
 					Cerca
 				</button>
 			</form>
-
-			{list.map((el, index) => (
-				<ul key={index}>
-					<li>{el.title}</li>
-					{console.log(list)}
-				</ul>
-			))}
+			<ul>
+				{list.map((title, index) => (
+					<li key={index}>
+						<ul>
+							<li>{title.title}</li>
+							<li>{title.originalTitle}</li>
+							<li>{title.originalLanguage}</li>
+							<li>{title.vote}</li>
+						</ul>
+					</li>
+				))}
+			</ul>
 		</div>
 	);
 }
