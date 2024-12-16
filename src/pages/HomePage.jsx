@@ -60,7 +60,7 @@ export default function HomePage() {
 
 			{list.map((el, index) => (
 				<ul key={index}>
-					<li>{el[0].results[0].title}</li>
+					<li>{el.title}</li>
 				</ul>
 			))}
 		</div>
