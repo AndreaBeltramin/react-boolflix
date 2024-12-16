@@ -82,10 +82,15 @@ export default function HomePage() {
 
 	//dichiaro una funzione che avviene al submit del form
 	const handleFormSubmit = (event) => {
+		//prevengo il submit del form
 		event.preventDefault();
+		//invoco la funzione per fare le 2 fetch
 		handleFetch();
+		//resetto input
+		setFormFields(defaultFormData);
 	};
 
+	//dichiaro una funzione per fare le 2 fetch insieme
 	const handleFetch = () => {
 		fetchMovies();
 		fetchTvShows();
