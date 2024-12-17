@@ -1,6 +1,6 @@
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
-import { GlobalContextProvider } from "./contexts/globalContext";
+import { GlobalContextProvider } from "./contexts/GlobalContext.jsx";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./assets/css/index.css";
