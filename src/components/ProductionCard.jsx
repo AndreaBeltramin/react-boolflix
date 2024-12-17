@@ -5,21 +5,43 @@ export default function ProductionCard({ production }) {
 		return imageUrl + size + poster;
 	};
 
+	const transformLanguageToFlag = () => {
+		if (production.originalLanguage === "en") return "GB";
+		return production.originalLanguage.toUpperCase();
+	};
+
+	const transformVote = (vote) => {
+		if (vote > 7) return <i class="fa-regular fa-star"></i>;
+		else return <i class="fa-solid fa-star"></i>;
+	};
+
 	return (
 		<div className="col">
-			<div className="card">
+			<div className="card h-100">
 				<img
 					src={buildPosterUrl(production.image)}
 					className="card-img-top"
 					alt="..."
 				/>
 				<div className="card-body">
-					<h5 className="card-title">{production.title}</h5>
 					<div className="card-text">
-						<div>{production.title}</div>
-						<div>{production.originalTitle}</div>
-						<div>{production.originalLanguage}</div>
-						<div>{production.vote}</div>
+						<div>
+							<strong>Titolo: </strong>
+							{production.title}
+						</div>
+						<div>
+							<strong>Titolo originale: </strong>
+							{production.originalTitle}
+						</div>
+						<img
+							src={`https://flagsapi.com/${transformLanguageToFlag(
+								production.originalLanguage
+							)}/shiny/16.png`}
+						/>
+						<div>
+							<strong>Voto: </strong>
+							{transformVote(production.vote)}
+						</div>
 					</div>
 				</div>
 			</div>

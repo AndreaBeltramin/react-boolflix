@@ -7,7 +7,7 @@ export default function ProductionList({ children, productions }) {
 				{children}
 				<div className="row row-cols-3 g-3">
 					{productions.map((production, index) => (
-						<ProductionCard production={production} />
+						<ProductionCard key={index} production={production} />
 					))}
 				</div>
 			</section>
