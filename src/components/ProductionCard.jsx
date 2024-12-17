@@ -11,8 +11,46 @@ export default function ProductionCard({ production }) {
 	};
 
 	const transformVote = (vote) => {
-		if (vote > 7) return <i class="fa-regular fa-star"></i>;
-		else return <i class="fa-solid fa-star"></i>;
+		if (Math.round(vote) / 2 === 1)
+			return (
+				<div>
+					<i class="fa-regular fa-star"></i>
+				</div>
+			);
+		if (Math.round(vote) / 2 === 2)
+			return (
+				<div>
+					<i class="fa-regular fa-star"></i>
+					<i class="fa-regular fa-star"></i>
+				</div>
+			);
+		if (Math.round(vote) / 2 === 3)
+			return (
+				<div>
+					<i class="fa-regular fa-star"></i>
+					<i class="fa-regular fa-star"></i>
+					<i class="fa-regular fa-star"></i>
+				</div>
+			);
+		if (Math.round(vote) / 2 === 4)
+			return (
+				<div>
+					<i class="fa-regular fa-star"></i>
+					<i class="fa-regular fa-star"></i>
+					<i class="fa-regular fa-star"></i>
+					<i class="fa-regular fa-star"></i>
+				</div>
+			);
+		if (Math.round(vote) / 2 === 5)
+			return (
+				<div>
+					<i class="fa-regular fa-star"></i>
+					<i class="fa-regular fa-star"></i>
+					<i class="fa-regular fa-star"></i>
+					<i class="fa-regular fa-star"></i>
+					<i class="fa-regular fa-star"></i>
+				</div>
+			);
 	};
 
 	return (
@@ -41,6 +79,7 @@ export default function ProductionCard({ production }) {
 						<div>
 							<strong>Voto: </strong>
 							{transformVote(production.vote)}
+							{Math.round(production.vote)}
 						</div>
 					</div>
 				</div>
