@@ -14,7 +14,7 @@ export default function Header() {
 						onChange={handleInputChange}
 						value={formFields.title}
 						type="text"
-						className="m-2"
+						className="m-3"
 					/>
 					<button className="btn btn-secondary">Cerca</button>
 				</form>

@@ -6,8 +6,8 @@ export default function ProductionList({ children, productions }) {
 			<section>
 				{children}
 				<div className="row row-cols-3 g-3">
-					{productions.map((production, index) => (
-						<ProductionCard key={index} production={production} />
+					{productions.map((production) => (
+						<ProductionCard key={production.id} production={production} />
 					))}
 				</div>
 			</section>

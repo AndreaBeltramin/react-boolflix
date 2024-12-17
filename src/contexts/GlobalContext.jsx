@@ -32,11 +32,13 @@ export const GlobalContextProvider = ({ children }) => {
 			.then((data) => {
 				//recupero i dati di cui ho bisogno (titolo,lingua,voto) mappando results
 				const listMovies = data.results.map((movie) => ({
+					id: movie.id,
 					title: movie.title,
 					originalTitle: movie.original_title,
 					originalLanguage: movie.original_language,
 					vote: movie.vote_average,
 					image: movie.poster_path,
+					overview: movie.overview,
 				}));
 				console.log(listMovies);
 
@@ -66,10 +68,12 @@ export const GlobalContextProvider = ({ children }) => {
 			.then((data) => {
 				//recupero i dati di cui ho bisogno (titolo,lingua,voto) mappando results
 				const listTvShows = data.results.map((tvShow) => ({
+					id: tvShow.id,
 					title: tvShow.name,
 					originalTitle: tvShow.original_name,
 					originalLanguage: tvShow.original_language,
 					vote: tvShow.vote_average,
+					overview: tvShow.overview,
 				}));
 				console.log(listTvShows);
 

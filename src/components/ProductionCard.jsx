@@ -32,24 +32,26 @@ export default function ProductionCard({ production }) {
 					alt="..."
 				/>
 				<div className="card-body">
-					<div className="card-text">
-						<div>
-							<strong>Titolo: </strong>
-							{production.title}
-						</div>
-						<div>
-							<strong>Titolo originale: </strong>
-							{production.originalTitle}
-						</div>
-						<img
-							src={`https://flagsapi.com/${transformLanguageToFlag(
-								production.originalLanguage
-							)}/shiny/16.png`}
-						/>
-						<div>
-							<strong>Voto: </strong>
-							{transformVote(production.vote)}
-						</div>
+					<div>
+						<strong>Titolo: </strong>
+						{production.title}
+					</div>
+					<div>
+						<strong>Titolo originale: </strong>
+						{production.originalTitle}
+					</div>
+					<img
+						src={`https://flagsapi.com/${transformLanguageToFlag(
+							production.originalLanguage
+						)}/shiny/16.png`}
+					/>
+					<div>
+						<strong>Voto: </strong>
+						{transformVote(production.vote)}
+					</div>
+					<div>
+						<strong>Overview: </strong>
+						{production.overview}
 					</div>
 				</div>
 			</div>

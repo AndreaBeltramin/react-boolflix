@@ -19,6 +19,25 @@ header {
 	font-weight: bold;
 }
 
+/*MAIN*/
+.card-body {
+	display: none;
+}
+.card-img-top {
+	position: relative;
+}
+.card:hover > .card-body {
+	display: block;
+	background-color: rgba(0, 0, 0, 0.718);
+	opacity: 1;
+	color: white;
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+}
+
 i {
 	color: gold;
 }
