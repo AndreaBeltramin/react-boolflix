@@ -27,7 +27,11 @@ export default function ProductionCard({ production }) {
 		<div className="col">
 			<div className="card h-100">
 				<img
-					src={buildPosterUrl(production.image)}
+					src={
+						production.image
+							? buildPosterUrl(production.image)
+							: "https://placehold.co/400X600?text=Nessuna+Copertina+Disponibile"
+					}
 					className="card-img-top h-100"
 					alt="..."
 				/>
@@ -51,7 +55,9 @@ export default function ProductionCard({ production }) {
 					</div>
 					<div>
 						<strong>Overview: </strong>
-						{production.overview}
+						{production.overview !== ""
+							? production.overview
+							: "nessuna trama disponibile"}
 					</div>
 				</div>
 			</div>

@@ -73,6 +73,7 @@ export const GlobalContextProvider = ({ children }) => {
 					originalTitle: tvShow.original_name,
 					originalLanguage: tvShow.original_language,
 					vote: tvShow.vote_average,
+					image: tvShow.poster_path,
 					overview: tvShow.overview,
 				}));
 				console.log(listTvShows);
