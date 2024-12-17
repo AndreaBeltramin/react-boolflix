@@ -39,6 +39,7 @@ export const GlobalContextProvider = ({ children }) => {
 					vote: movie.vote_average,
 					image: movie.poster_path,
 					overview: movie.overview,
+					date: movie.release_date,
 				}));
 				console.log(listMovies);
 
@@ -75,6 +76,7 @@ export const GlobalContextProvider = ({ children }) => {
 					vote: tvShow.vote_average,
 					image: tvShow.poster_path,
 					overview: tvShow.overview,
+					date: tvShow.first_air_date,
 				}));
 				console.log(listTvShows);
 

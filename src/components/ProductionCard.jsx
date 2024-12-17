@@ -54,7 +54,11 @@ export default function ProductionCard({ production }) {
 						{transformVote(production.vote)}
 					</div>
 					<div>
-						<strong>Overview: </strong>
+						<strong>Data di uscita: </strong>
+						{production.date}
+					</div>
+					<div>
+						<strong>Trama: </strong>
 						{production.overview !== ""
 							? production.overview
 							: "nessuna trama disponibile"}
