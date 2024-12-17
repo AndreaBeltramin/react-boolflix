@@ -8,7 +8,7 @@ export default function Main() {
 		<main>
 			{listMovies.length == 0 && listTvShows.length == 0 ? (
 				<div className="container mt-5 fs-1 fw-bold mb-5">
-					Prova a cercare qualcosa...
+					Prova a cercare un film o una serie TV!
 				</div>
 			) : (
 				<div className="container mt-5">
