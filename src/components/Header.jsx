@@ -15,8 +15,10 @@ export default function Header() {
 						value={formFields.title}
 						type="text"
 						className="m-3"
+						autoFocus
+						placeholder="Digita qui..."
 					/>
-					<button className="btn btn-secondary">Cerca</button>
+					<button className="btn btn-danger">Cerca</button>
 				</form>
 			</div>
 		</header>
