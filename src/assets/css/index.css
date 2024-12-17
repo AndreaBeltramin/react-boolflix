@@ -1,0 +1,24 @@
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: gray;
+}
+
+/* HEADER */
+header {
+	padding: 10px 20px;
+	background-color: rgb(12, 12, 12);
+	height: 80px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.logo {
+	color: red;
+	font-size: 2.5rem;
+	font-weight: bold;
+}
+
+i {
+	color: gold;
+}

@@ -12,7 +12,7 @@ export default function HomePage() {
 	} = globalContext();
 
 	return (
-		<div className="container mt-5">
+		<div>
 			<Header />
 			<Main />
 		</div>

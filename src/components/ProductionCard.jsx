@@ -11,46 +11,16 @@ export default function ProductionCard({ production }) {
 	};
 
 	const transformVote = (vote) => {
-		if (Math.round(vote) / 2 === 1)
-			return (
-				<div>
-					<i class="fa-regular fa-star"></i>
-				</div>
-			);
-		if (Math.round(vote) / 2 === 2)
-			return (
-				<div>
-					<i class="fa-regular fa-star"></i>
-					<i class="fa-regular fa-star"></i>
-				</div>
-			);
-		if (Math.round(vote) / 2 === 3)
-			return (
-				<div>
-					<i class="fa-regular fa-star"></i>
-					<i class="fa-regular fa-star"></i>
-					<i class="fa-regular fa-star"></i>
-				</div>
-			);
-		if (Math.round(vote) / 2 === 4)
-			return (
-				<div>
-					<i class="fa-regular fa-star"></i>
-					<i class="fa-regular fa-star"></i>
-					<i class="fa-regular fa-star"></i>
-					<i class="fa-regular fa-star"></i>
-				</div>
-			);
-		if (Math.round(vote) / 2 === 5)
-			return (
-				<div>
-					<i class="fa-regular fa-star"></i>
-					<i class="fa-regular fa-star"></i>
-					<i class="fa-regular fa-star"></i>
-					<i class="fa-regular fa-star"></i>
-					<i class="fa-regular fa-star"></i>
-				</div>
-			);
+		const roundedVote = Math.round(vote / 2); // Per avere un numero tra 1 e 5
+		let stars = [];
+		for (let i = 1; i <= 5; i++) {
+			if (i <= roundedVote) {
+				stars.push(<i key={i} className="fa-solid fa-star"></i>); // Stelle piene
+			} else {
+				stars.push(<i key={i} className="fa-regular fa-star"></i>); // Stelle vuote
+			}
+		}
+		return <span>{stars}</span>;
 	};
 
 	return (
@@ -58,7 +28,7 @@ export default function ProductionCard({ production }) {
 			<div className="card h-100">
 				<img
 					src={buildPosterUrl(production.image)}
-					className="card-img-top"
+					className="card-img-top h-100"
 					alt="..."
 				/>
 				<div className="card-body">
@@ -79,7 +49,6 @@ export default function ProductionCard({ production }) {
 						<div>
 							<strong>Voto: </strong>
 							{transformVote(production.vote)}
-							{Math.round(production.vote)}
 						</div>
 					</div>
 				</div>

@@ -5,7 +5,7 @@ export default function Main() {
 	const { listMovies, listTvShows } = globalContext();
 
 	return (
-		<main>
+		<main className="container mt-5">
 			<ProductionList productions={listMovies}>
 				<h1>FILM</h1>
 			</ProductionList>
