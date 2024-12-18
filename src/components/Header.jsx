@@ -1,6 +1,8 @@
+//importo il contesto per poi estarne gli elementi che mi serviranno
 import { globalContext } from "../contexts/GlobalContext";
 
 export default function Header() {
+	//destrutturo gli elementi che mi servono dal contesto
 	const { handleFormSubmit, handleInputChange, formFields } = globalContext();
 
 	return (

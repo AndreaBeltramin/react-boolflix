@@ -8,7 +8,7 @@ const defaultFormData = {
 
 export const GlobalContextProvider = ({ children }) => {
 	//uso lo useState per controllare il cambiamento della lista e dell'input
-	const [listMovies, setList] = useState([]);
+	const [listMovies, setListMovies] = useState([]);
 	const [listTvShows, setListTvShows] = useState([]);
 	const [formFields, setFormFields] = useState(defaultFormData);
 
@@ -44,7 +44,7 @@ export const GlobalContextProvider = ({ children }) => {
 				console.log(listMovies);
 
 				//setto la lista con i dati che ho recuperato
-				setList(listMovies);
+				setListMovies(listMovies);
 			})
 			.catch((err) => console.error(err));
 	};
