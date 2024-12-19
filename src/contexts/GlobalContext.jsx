@@ -14,9 +14,8 @@ export const GlobalContextProvider = ({ children }) => {
 
 	//dichiaro la fetch per recuperare dall'endpoint dell'API le informazioni che mi servono
 	const fetchMovies = () => {
-		const url = `https://api.themoviedb.org/3/search/movie?query=${formFields.title}`;
+		const url = `https://api.themoviedb.org/3/search/movie?query=${formFields.title}&include_adult=true&language=it-IT&page=1`;
 		const accessKey = import.meta.env.VITE_TMDB_API_KEY;
-
 		//nell'header devo inserire l'API KEY per avere l'autorizzazione
 		const options = {
 			method: "GET",
@@ -51,7 +50,7 @@ export const GlobalContextProvider = ({ children }) => {
 
 	//dichiaro la fetch per recuperare dall'endpoint dell'API le informazioni che mi servono sulle SERIE TV
 	const fetchTvShows = () => {
-		const url = `https://api.themoviedb.org/3/search/tv?query=${formFields.title}`;
+		const url = `https://api.themoviedb.org/3/search/tv?query=${formFields.title}&include_adult=true&language=it-IT&page=1`;
 		const accessKey = import.meta.env.VITE_TMDB_API_KEY;
 
 		//nell'header devo inserire l'API KEY per avere l'autorizzazione
